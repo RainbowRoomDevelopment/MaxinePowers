@@ -37,7 +37,6 @@ class Maxine(commands.Bot):
 
         # loads the stored lists into cache.
 
-
     async def close(self) -> None:
         await self.session.close()
         await self.db.close()
@@ -124,6 +123,7 @@ class Maxine(commands.Bot):
 
 bot = Maxine(intents=discord.Intents.all(), command_prefix=commands.when_mentioned_or("m."))
 # figure out a clean way to support prefixes
+
 
 @bot.event
 async def on_ready():
