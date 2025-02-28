@@ -8,12 +8,18 @@ import sys
 import traceback
 from typing import Any, Optional, Union
 
+import asyncpg
 import discord
 from aiohttp import ClientSession
 from discord.ext import commands
 
 from cogs import EXTENSIONS
 
+class CustomRecordClass(asyncpg.Record):
+    def __getattr__(self, name: str) -> Any:
+        if name in self.keys():
+            return self[name]
+        return super().__getattr__(name)
 
 class Maxine(commands.Bot):
 
@@ -21,8 +27,12 @@ class Maxine(commands.Bot):
         super().__init__(command_prefix=command_prefix, intents=intents, **kwargs)
 
     async def setup_hook(self) -> None:
-        await self.db.create_connection()
-        self.pool = self.db._pool
+        # await self.db.create_connection()
+        # self.pool = self.db._pool
+
+        # possible return with better database management.
+
+        self.db = await asyncpg.create_pool(os.getenv("DB_key"), record_class=CustomRecordClass)
         self.session = ClientSession()
 
         cogs = await asyncio.gather(
