@@ -131,7 +131,8 @@ class Maxine(commands.Bot):
             return None
 
 
-activity = discord.CustomActivity(name= "Girlie powers active", emoji=discord.PartialEmoji.from_str("🌟"))
+emoji = discord.PartialEmoji.from_str("🌟")
+activity = discord.CustomActivity(name= "Girlie powers active", emoji=emoji)
 bot = Maxine(intents=discord.Intents.all(), command_prefix=commands.when_mentioned_or("m."), activity=activity)
 # figure out a clean way to support prefixes
 
