@@ -1,6 +1,6 @@
 # Maxine Powers
 
-Support Server:
+Official Support Server:
 
 [(Discord Server)](https://discord.gg/BDZBRbxRGt)
 
@@ -55,3 +55,4 @@ MOD_CHANNEL =
 # ID of the channel that will be used as fallback for moderation Webhooks
 
 ```
+
