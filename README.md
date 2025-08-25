@@ -2,7 +2,7 @@
 
 Support Server:
 
-(coming soon)
+[(Discord Server)](https://discord.gg/BDZBRbxRGt)
 
 ## Tables
 
@@ -53,4 +53,5 @@ MOD_WEBHOOK =
 
 MOD_CHANNEL =
 # ID of the channel that will be used as fallback for moderation Webhooks
+
 ```
